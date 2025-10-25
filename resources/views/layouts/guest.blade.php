@@ -96,9 +96,15 @@
 
             lastScrollTop = scrollTop;
         });
+  document.addEventListener("DOMContentLoaded", function() {
+    const imgs = document.querySelectorAll("img");
+    imgs.forEach(img => img.loading = "lazy");
+  });
+
     </script>
+
 </body>
 
 </html>
-<div class="text-center container-fluid position-relative"
-    style="background-image: url({{ asset('images/p2-img1.webp') }});">
+{{-- <div class="text-center container-fluid position-relative"
+    style="background-image: url({{ asset('images/p2-img1.webp') }});"> --}}
