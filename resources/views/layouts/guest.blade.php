@@ -4,10 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover Flavois – where flavor meets finesse. Enjoy a rich variety of freshly prepared dishes, weekly specials, order online today!">
+    <meta name="description"
+        content="Discover Flavois – where flavor meets finesse. Enjoy a rich variety of freshly prepared dishes, weekly specials, order online today!">
     <title>Flavios-Flavors That Find You</title>
     <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/x-icon" />
-
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5LF6W9HX');
+    </script>
+    <!-- End Google Tag Manager -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
@@ -19,18 +37,23 @@
     <link rel="stylesheet" href="{{ asset('css/hero.css') }}">
     <link rel="canonical" href="{{ url()->current() }}">
 
-        <!-- Open Graph (OG) Meta Tags -->
+    <!-- Open Graph (OG) Meta Tags -->
     <meta property="og:title" content="Delicious Chinese & Continental Dishes | YourWebsiteName">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:image" content="{{ asset('images/p2-img1.webp') }}">
-    <meta property="og:description" content="Explore authentic Chinese and continental pasta dishes with modern flavors and presentation.">
+    <meta property="og:description"
+        content="Explore authentic Chinese and continental pasta dishes with modern flavors and presentation.">
     <meta property="og:site_name" content="Flavios">
 
 
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5LF6W9HX" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     @include('components.navbar')
 
     {{-- <div class="m-3 text-center position-relative"
@@ -46,35 +69,34 @@
     </div> --}}
 
     <main>
-         {{$slot}}
+        {{ $slot }}
     </main>
-    @props(['socialLinks','privateInformation'])
+    @props(['socialLinks', 'privateInformation'])
 
     @include('components.footer')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init();
-    let lastScrollTop = 0;
-    const navbar = document.querySelector('.navbar');
+    <script>
+        AOS.init();
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
 
-    window.addEventListener('scroll', function () {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-        if (scrollTop === 0) {
-            navbar.classList.remove('navbar-hidden');
-        } else if (scrollTop > lastScrollTop) {
-            // Scrolling down
-            navbar.classList.add('navbar-hidden');
-        } else {
-            // Scrolling up
-            navbar.classList.remove('navbar-hidden');
-        }
+            if (scrollTop === 0) {
+                navbar.classList.remove('navbar-hidden');
+            } else if (scrollTop > lastScrollTop) {
+                // Scrolling down
+                navbar.classList.add('navbar-hidden');
+            } else {
+                // Scrolling up
+                navbar.classList.remove('navbar-hidden');
+            }
 
-        lastScrollTop = scrollTop;
-    });
-
-</script>
+            lastScrollTop = scrollTop;
+        });
+    </script>
 </body>
 
 </html>
